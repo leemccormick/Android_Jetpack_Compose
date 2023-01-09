@@ -14,7 +14,7 @@ With Jetpack, creating slick animations and using Material Design is a breeze be
 
 This course brings you up-to-speed developing apps with Jetpack Compose and Kotlin.
 
-You’ll be learning from the basics of what a Composable function is to how to handle state in Compose, and how to build full-fledge android apps that leverage the full power of Jetpack Compose and Kotlin.
+I have learned from the basics of what a Composable function is to how to handle state in Compose, and how to build full-fledge android apps that leverage the full power of Jetpack Compose and Kotlin.
 
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
