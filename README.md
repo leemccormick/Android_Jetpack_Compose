@@ -16,6 +16,12 @@ This course brings you up-to-speed developing apps with Jetpack Compose and Kotl
 
 I have learned from the basics of what a Composable function is to how to handle state in Compose, and how to build full-fledge android apps that leverage the full power of Jetpack Compose and Kotlin.
 
+### Biz Card App
+- First App of Jetpack Compose in Android Studio
+
+<img width="1337" alt="Screen Shot 2023-01-09 at 3 01 21 PM" src="https://user-images.githubusercontent.com/57606580/211407735-32d2238d-1dd2-4966-8d83-1ee88bf78533.png">
+
+
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
 - https://www.udemy.com/
