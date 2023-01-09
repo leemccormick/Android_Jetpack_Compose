@@ -81,19 +81,15 @@ fun CreateBizCard() {
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-
                 CreateImageProfile()
-
                 Divider()
                 /* We can modifier the divider.
-                    Divider(modifier = Modifier.height(20.dp),
-                            color = Color.Blue,
-                            thickness = 12.dp,
-                            startIndent = 0.dp)
-                 */
-
+                 Divider(modifier = Modifier.height(20.dp),
+                         color = Color.Blue,
+                         thickness = 12.dp,
+                         startIndent = 0.dp)
+                */
                 CreateInfo()
-
                 Button(onClick = {
                     Log.d("Clicked !", "Creted Biz Card Clicked!")
                         // Toggle value
