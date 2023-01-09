@@ -9,6 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Functions" />
             <option value="$PROJECT_DIR$/LanguageFundamentals" />
             <option value="$PROJECT_DIR$/LoopAndBranching" />
             <option value="$PROJECT_DIR$/app" />

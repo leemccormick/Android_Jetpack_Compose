@@ -16,3 +16,4 @@ rootProject.name = "BasicKotlin"
 include ':app'
 include ':LanguageFundamentals'
 include ':LoopAndBranching'
+include ':Functions'
