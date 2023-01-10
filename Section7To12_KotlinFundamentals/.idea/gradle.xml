@@ -10,6 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/AdvanceConcept" />
             <option value="$PROJECT_DIR$/Collections" />
             <option value="$PROJECT_DIR$/Functions" />
             <option value="$PROJECT_DIR$/LanguageFundamentals" />
