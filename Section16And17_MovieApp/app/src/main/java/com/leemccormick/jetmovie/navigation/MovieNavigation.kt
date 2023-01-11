@@ -12,19 +12,23 @@ import com.leemccormick.jetmovie.screens.screen.home.HomeScreen
 @Composable
 fun MovieNavigation() {
     val navController = rememberNavController()
-    NavHost(navController = navController,
-        startDestination = MovieScreens.HomeScreen.name) {
+    NavHost(
+        navController = navController,
+        startDestination = MovieScreens.HomeScreen.name
+    ) {
 
         composable(MovieScreens.HomeScreen.name) {
             // Here we pass where this should lead us to
             HomeScreen(navController = navController)
         }
 
-        composable(MovieScreens.DetailScreen.name+"/{movie}",
-                    arguments = listOf(navArgument(name = "movie") { type = NavType.StringType})) {
-            backStackEntry ->
-
-            DetailsScreen(navController = navController, backStackEntry.arguments?.getString("movie"))
+        composable(MovieScreens.DetailScreen.name + "/{movie}",
+            arguments = listOf(navArgument(name = "movie") { type = NavType.StringType })
+        ) { backStackEntry ->
+            DetailsScreen(
+                navController = navController,
+                backStackEntry.arguments?.getString("movie")
+            )
         }
     }
 }
