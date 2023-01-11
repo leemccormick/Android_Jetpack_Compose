@@ -27,11 +27,18 @@ I have learned from the basics of what a Composable function is to how to handle
 
 <img width="1616" alt="Screen Shot 2023-01-10 at 3 13 29 PM" src="https://user-images.githubusercontent.com/57606580/211664059-e98ff670-e719-43a9-9b24-e12ffeee44e1.png">
 
-### JetTip App
+### Jet Tip App
 - Tip Calulator App by Jetpack Compose, build a screen and learn how to combile component togeter in Jetpack Compose
 - Learn more from --> https://github.com/pdichone/jetTip-Test/tree/jetTip-with-hoisting
 
 <img width="1587" alt="Screen Shot 2023-01-11 at 11 24 19 AM" src="https://user-images.githubusercontent.com/57606580/211878262-8b2b5bcc-6f5c-420f-b11b-60a7fb41f907.png">
+
+### Jet Movie App
+- Scaffold : a UI structure for our apps
+- Navigation Component : set of tools for navigation
+- Passing data between screens
+- LazyColumn : Showing a list of items on screen
+- Learn more from --> https://github.com/pdichone/JetMovieApp
 
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
