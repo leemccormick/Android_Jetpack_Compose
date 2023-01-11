@@ -40,6 +40,9 @@ I have learned from the basics of what a Composable function is to how to handle
 - LazyColumn : Showing a list of items on screen
 - Learn more from --> https://github.com/pdichone/JetMovieApp
 
+<img width="1669" alt="Screen Shot 2023-01-11 at 4 04 56 PM" src="https://user-images.githubusercontent.com/57606580/211928058-08adeb37-b093-4189-8117-d9007f35c654.png">
+
+
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
 - https://www.udemy.com/
