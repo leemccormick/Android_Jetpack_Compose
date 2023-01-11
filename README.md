@@ -18,6 +18,7 @@ I have learned from the basics of what a Composable function is to how to handle
 
 ### Biz Card App
 - First App of Jetpack Compose in Android Studio
+- Learn more from --> https://github.com/pdichone/JetBizCard-Course
 
 <img width="1337" alt="Screen Shot 2023-01-09 at 3 01 21 PM" src="https://user-images.githubusercontent.com/57606580/211407735-32d2238d-1dd2-4966-8d83-1ee88bf78533.png">
 
@@ -25,6 +26,12 @@ I have learned from the basics of what a Composable function is to how to handle
 - Basics of Jetpack Compose, State in Compose and Clickable Event
 
 <img width="1616" alt="Screen Shot 2023-01-10 at 3 13 29 PM" src="https://user-images.githubusercontent.com/57606580/211664059-e98ff670-e719-43a9-9b24-e12ffeee44e1.png">
+
+### JetTip App
+- Tip Calulator App by Jetpack Compose, build a screen and learn how to combile component togeter in Jetpack Compose
+- Learn more from --> https://github.com/pdichone/jetTip-Test/tree/jetTip-with-hoisting
+
+<img width="1587" alt="Screen Shot 2023-01-11 at 11 24 19 AM" src="https://user-images.githubusercontent.com/57606580/211878262-8b2b5bcc-6f5c-420f-b11b-60a7fb41f907.png">
 
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
