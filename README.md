@@ -49,6 +49,8 @@ I have learned from the basics of what a Composable function is to how to handle
 - Learn more about Room --> https://developer.android.com/jetpack/androidx/releases/room?hl=en#kts
 - Learn more about Hilt --> https://developer.android.com/training/dependency-injection/hilt-android
 
+<img width="1660" alt="Screen Shot 2023-01-12 at 12 43 58 PM" src="https://user-images.githubusercontent.com/57606580/212153276-ccc5e114-bba9-4d35-8a9c-c238f7bc70e4.png">
+
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
 - https://www.udemy.com/
