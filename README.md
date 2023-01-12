@@ -51,6 +51,10 @@ I have learned from the basics of what a Composable function is to how to handle
 
 <img width="1660" alt="Screen Shot 2023-01-12 at 12 43 58 PM" src="https://user-images.githubusercontent.com/57606580/212153276-ccc5e114-bba9-4d35-8a9c-c238f7bc70e4.png">
 
+### Jet Trivia App
+- Learn more from --> https://github.com/pdichone/jetTrivia
+- JSON Data from --> https://raw.githubusercontent.com/itmmckernan/triviaJSON/master/world.json
+
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
 - https://www.udemy.com/
