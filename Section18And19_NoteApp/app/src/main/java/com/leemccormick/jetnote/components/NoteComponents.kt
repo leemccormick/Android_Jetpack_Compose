@@ -52,7 +52,7 @@ fun NoteButton(
     text: String,
     onClick: () -> Unit,
     enabled: Boolean = true
-){
+) {
     Button(
         onClick = onClick,
         shape = CircleShape,

@@ -27,6 +27,7 @@ import com.leemccormick.jetnote.components.NoteButton
 import com.leemccormick.jetnote.components.NoteInputText
 import com.leemccormick.jetnote.data.NotesDataSource
 import com.leemccormick.jetnote.model.Note
+import com.leemccormick.jetnote.util.formatDate
 import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -134,7 +135,7 @@ fun NoteRow(
             Text(text = note.description, style = MaterialTheme.typography.subtitle1)
 
             Text(
-                text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE, d MMM")),
+                text = formatDate(note.entryDate.time),
                 style = MaterialTheme.typography.caption
             )
         }
