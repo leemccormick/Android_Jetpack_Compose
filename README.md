@@ -45,6 +45,7 @@ I have learned from the basics of what a Composable function is to how to handle
 ### Jet Note App
 - Learn how to use view model and source of true by building note app from scratch.
 - Learn more from --> https://github.com/pdichone/JetNoteApp
+- Learn more about view model in Compose Android from --> https://developer.android.com/jetpack/compose/libraries
 
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
