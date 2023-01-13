@@ -52,8 +52,18 @@ I have learned from the basics of what a Composable function is to how to handle
 <img width="1660" alt="Screen Shot 2023-01-12 at 12 43 58 PM" src="https://user-images.githubusercontent.com/57606580/212153276-ccc5e114-bba9-4d35-8a9c-c238f7bc70e4.png">
 
 ### Jet Trivia App
+- Introduction to clean architecture
+- Parsing JSON using Retrofit
+- UI Design in Compose
 - Learn more from --> https://github.com/pdichone/jetTrivia
 - JSON Data from --> https://raw.githubusercontent.com/itmmckernan/triviaJSON/master/world.json
+
+<img width="1591" alt="Screen Shot 2023-01-13 at 1 15 07 PM" src="https://user-images.githubusercontent.com/57606580/212400632-bbcc831d-6902-40d2-b6ea-2049ec4fd8a0.png">
+
+### Jet Weather Forecast App
+- Build weather forecast application using Jetpack Compose, search for city and load weather data from API
+- Learn more from --> https://github.com/pdichone/JetWeatherForecast
+
 
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
