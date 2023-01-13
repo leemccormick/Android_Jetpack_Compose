@@ -7,10 +7,8 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.material.ButtonDefaults.buttonColors
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -22,6 +20,7 @@ import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextIndent
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
@@ -76,7 +75,6 @@ fun QuestionDisplay(
     viewModel: QuestionsViewModel,
     onNextClicked: (Int) -> Unit = {}
 ) {
-
     val choicesState = remember(question) {
         question.choices.toMutableList()
     }
@@ -111,7 +109,9 @@ fun QuestionDisplay(
             horizontalAlignment = Alignment.Start
         ) {
 
-            QuestionTracker(counter = questionIndex.value)
+            if (questionIndex.value >= 3) ShowProgress(score = questionIndex.value)
+
+            QuestionTracker(counter = questionIndex.value, viewModel.getTotalQuestionCount())
 
             DrawDottedLine(pathEffect = pathEffect)
 
@@ -216,14 +216,12 @@ fun QuestionDisplay(
     }
 }
 
-
 @Preview
 @Composable
 fun QuestionTracker(
     counter: Int = 10,
     outOf: Int = 100
 ) {
-
     Text(
         text = buildAnnotatedString {
             withStyle(style = ParagraphStyle(textIndent = TextIndent.None)) {
@@ -272,7 +270,17 @@ fun DrawDottedLine(pathEffect: PathEffect) {
 
 @Preview
 @Composable
-fun ShowProgress() {
+fun ShowProgress(score: Int = 12) {
+    val gradient = Brush.linearGradient(
+        listOf(
+            Color(0xFF950755),
+            Color(0xFFBE6BE5)
+        )
+    )
+
+    val progressFactor by remember(score) {
+        mutableStateOf(score * 0.005f)
+    }
 
     Row(
         modifier = Modifier
@@ -297,7 +305,32 @@ fun ShowProgress() {
                 )
             )
             .background(Color.Transparent),
+        verticalAlignment = Alignment.CenterVertically
     ) {
+        Button(
+            contentPadding = PaddingValues(1.dp),
+            onClick = {
 
+            },
+            modifier = Modifier
+                .fillMaxWidth(progressFactor)
+                .background(brush = gradient),
+            enabled = false,
+            colors = buttonColors(
+                backgroundColor = Color.Transparent,
+                disabledBackgroundColor = Color.Transparent
+            )
+        ) {
+            Text(
+                text = (score * 10).toString(),
+                modifier = Modifier
+                    .clip(shape = RoundedCornerShape(23.dp))
+                    .fillMaxHeight(0.87f)
+                    .fillMaxWidth()
+                    .padding(6.dp),
+                color = AppColors.mOffWhite,
+                textAlign = TextAlign.Center
+            )
+        }
     }
 }
