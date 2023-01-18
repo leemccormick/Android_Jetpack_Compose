@@ -31,6 +31,7 @@ import com.leemccormick.jetweatherforcast.data.DataOrException
 import com.leemccormick.jetweatherforcast.model.Weather
 import com.leemccormick.jetweatherforcast.model.WeatherItem
 import com.leemccormick.jetweatherforcast.model.WeatherObject
+import com.leemccormick.jetweatherforcast.navigation.WeatherScreens
 import com.leemccormick.jetweatherforcast.utils.formatDate
 import com.leemccormick.jetweatherforcast.utils.formatDateTime
 import com.leemccormick.jetweatherforcast.utils.formatDecimals
@@ -40,12 +41,15 @@ import java.util.*
 @Composable
 fun MainScreen(
     navController: NavController,
-    mainViewModel: MainViewModel = hiltViewModel()
+    mainViewModel: MainViewModel = hiltViewModel(),
+    city: String?
 ) {
+    Log.d("MainScreen", "city is $city")
+
     val weatherData = produceState<DataOrException<Weather, Boolean, Exception>>(
         initialValue = DataOrException(loading = true)
     ) {
-        value = mainViewModel.getWeatherData(city = "Maputo")
+        value = mainViewModel.getWeatherData(city = city.toString())
     }.value
 
     if (weatherData.loading == true) {
@@ -63,6 +67,9 @@ fun MainScaffold(weather: Weather, navController: NavController) {
             title = weather.city.name + " ,${weather.city.country}",
             // icon = Icons.Default.ArrowBack,
             navController = navController,
+            onAddActionClicked = {
+                navController.navigate(WeatherScreens.SearchScreen.name)
+            },
             elevation = 5.dp
         ) {
             Log.d("CLICK", "MainScaffold : Button Clicked !")
@@ -75,7 +82,7 @@ fun MainScaffold(weather: Weather, navController: NavController) {
 @Composable
 fun MainContent(data: Weather) {
     val weatherItem = data.list[0]
-    val imageUrl = "https://openweathermap.org/img/wn/${data!!.list[0].weather[0].icon}.png"
+    val imageUrl = "https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}.png"
 
     Column(
         modifier = Modifier
