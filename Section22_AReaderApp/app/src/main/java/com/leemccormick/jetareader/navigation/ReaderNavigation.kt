@@ -16,7 +16,7 @@ import com.leemccormick.jetareader.screens.update.BookUpdateScreen
 * 1) Create all empty screens in each own folder in Screens folder.
 * 2) Create Screens Enum --> using companion object to create fromRoute function
 * 3) Create Navigation Composable for navigate between screen in the app --> ReaderNavigation
-* 4) Call Navigation in MainActivity
+* 4) Call Navigation in MainActivity, so when we run the app, it will start at startDestination as we set on this Navigation Composable.
 * */
 
 @Composable
