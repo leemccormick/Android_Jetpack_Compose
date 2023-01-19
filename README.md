@@ -64,6 +64,9 @@ I have learned from the basics of what a Composable function is to how to handle
 - Build weather forecast application using Jetpack Compose, search for city and load weather data from API
 - Learn more from --> https://github.com/pdichone/JetWeatherForecast
 
+<img width="1641" alt="Screen Shot 2023-01-19 at 10 15 22 AM" src="https://user-images.githubusercontent.com/57606580/213495142-ee217802-fef7-4e68-885e-174877fbb74d.png">
+
+![JetWeatherApp](https://user-images.githubusercontent.com/57606580/213495215-e97cc6c0-d652-4ad1-800a-3d4a44db64c9.gif)
 
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
