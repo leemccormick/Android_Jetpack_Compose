@@ -70,10 +70,9 @@ I have learned from the basics of what a Composable function is to how to handle
 <img width="250" src="https://user-images.githubusercontent.com/57606580/213496388-dac1f2db-8906-4a37-8c8b-67b835589173.gif" title="Jet Weather App">
 
 
-| Command | Description |
+| App Demo | What to Learn |
 | --- | --- |
-| <img width="250" src="https://user-images.githubusercontent.com/57606580/213496388-dac1f2db-8906-4a37-8c8b-67b835589173.gif" title="Jet Weather App"> | - Build weather forecast application using Jetpack Compose, search for city and load weather data from API. 
-Room for database, Retrofit for API, Hilt for ViewModel and Dependency Injection \n- Learn more from --> https://github.com/pdichone/JetWeatherForecast |     
+| <img width="250" src="https://user-images.githubusercontent.com/57606580/213496388-dac1f2db-8906-4a37-8c8b-67b835589173.gif" title="Jet Weather App"> | -- Build weather forecast application using Jetpack Compose, search for city and load weather data from API. - Room for database, Retrofit for API, Hilt for ViewModel and Dependency Injection - Learn more from --> https://github.com/pdichone/JetWeatherForecast |     
 
 
 ## Source
