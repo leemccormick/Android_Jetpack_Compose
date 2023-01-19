@@ -20,12 +20,12 @@ I have learned from the basics of what a Composable function is to how to handle
 - First App of Jetpack Compose in Android Studio
 - Learn more from --> https://github.com/pdichone/JetBizCard-Course
 
-<img width="500" alt="Screen Shot 2023-01-09 at 3 01 21 PM" src="https://user-images.githubusercontent.com/57606580/211407735-32d2238d-1dd2-4966-8d83-1ee88bf78533.png">
+<img width="1669" alt="Screen Shot 2023-01-09 at 3 01 21 PM" src="https://user-images.githubusercontent.com/57606580/211407735-32d2238d-1dd2-4966-8d83-1ee88bf78533.png">
 
 ### Money Counter App
 - Basics of Jetpack Compose, State in Compose and Clickable Event
 
-<img width="500" alt="Screen Shot 2023-01-10 at 3 13 29 PM" src="https://user-images.githubusercontent.com/57606580/211664059-e98ff670-e719-43a9-9b24-e12ffeee44e1.png">
+<img width="1669" alt="Screen Shot 2023-01-10 at 3 13 29 PM" src="https://user-images.githubusercontent.com/57606580/211664059-e98ff670-e719-43a9-9b24-e12ffeee44e1.png">
 
 ### Jet Tip App
 - Tip Calulator App by Jetpack Compose, build a screen and learn how to combile component togeter in Jetpack Compose
@@ -66,7 +66,7 @@ I have learned from the basics of what a Composable function is to how to handle
 
 <img width="1641" alt="Screen Shot 2023-01-19 at 10 15 22 AM" src="https://user-images.githubusercontent.com/57606580/213495142-ee217802-fef7-4e68-885e-174877fbb74d.png">
 
-![JetWeatherApp](https://user-images.githubusercontent.com/57606580/213495215-e97cc6c0-d652-4ad1-800a-3d4a44db64c9.gif)
+![JetWeatherApp](https://user-images.githubusercontent.com/57606580/213496388-dac1f2db-8906-4a37-8c8b-67b835589173.gif)
 
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
