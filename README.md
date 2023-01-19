@@ -66,7 +66,7 @@ I have learned from the basics of what a Composable function is to how to handle
 
 <img width="1641" alt="Screen Shot 2023-01-19 at 10 15 22 AM" src="https://user-images.githubusercontent.com/57606580/213495142-ee217802-fef7-4e68-885e-174877fbb74d.png">
 
-![JetWeatherApp](https://user-images.githubusercontent.com/57606580/213496388-dac1f2db-8906-4a37-8c8b-67b835589173.gif)
+<img width="200" src="https://user-images.githubusercontent.com/57606580/213496388-dac1f2db-8906-4a37-8c8b-67b835589173.gif">
 
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
