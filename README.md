@@ -25,7 +25,7 @@ I have learned from the basics of what a Composable function is to how to handle
 ### Money Counter App
 - Basics of Jetpack Compose, State in Compose and Clickable Event
 
-<img width="1616" alt="Screen Shot 2023-01-10 at 3 13 29 PM" src="https://user-images.githubusercontent.com/57606580/211664059-e98ff670-e719-43a9-9b24-e12ffeee44e1.png">
+<img width="500" alt="Screen Shot 2023-01-10 at 3 13 29 PM" src="https://user-images.githubusercontent.com/57606580/211664059-e98ff670-e719-43a9-9b24-e12ffeee44e1.png">
 
 ### Jet Tip App
 - Tip Calulator App by Jetpack Compose, build a screen and learn how to combile component togeter in Jetpack Compose
