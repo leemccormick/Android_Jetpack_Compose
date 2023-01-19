@@ -61,20 +61,21 @@ I have learned from the basics of what a Composable function is to how to handle
 <img width="1591" alt="Screen Shot 2023-01-13 at 1 15 07 PM" src="https://user-images.githubusercontent.com/57606580/212400632-bbcc831d-6902-40d2-b6ea-2049ec4fd8a0.png">
 
 ### Jet Weather Forecast App
-|- Build weather forecast application using Jetpack Compose, search for city and load weather data from API. |<img width="250" src="https://user-images.githubusercontent.com/57606580/213496388-dac1f2db-8906-4a37-8c8b-67b835589173.gif" title="Jet Weather App">
-|- Learn more from --> https://github.com/pdichone/JetWeatherForecast                                        |
-|                                                                                                            |
-
-| FirstName                                                                                                         | LastName      
-| ----------------------------------------------------------------------------------------------------------------- | ------------------ 
-|                                                                                                                   | Test1 
-| <img width="250"                                                                                                  |
-|      src="https://user-images.githubusercontent.com/57606580/213496388-dac1f2db-8906-4a37-8c8b-67b835589173.gif"  | 
-|      title="Jet Weather App">                                                                                     | Test2         
-
+- Build weather forecast application using Jetpack Compose, search for city and load weather data from API. 
+- Room for database, Retrofit for API, Hilt for ViewModel and Dependency Injection
+- Learn more from --> https://github.com/pdichone/JetWeatherForecast                                        
+       
 <img width="1641" alt="Screen Shot 2023-01-19 at 10 15 22 AM" src="https://user-images.githubusercontent.com/57606580/213495142-ee217802-fef7-4e68-885e-174877fbb74d.png">
 
 <img width="250" src="https://user-images.githubusercontent.com/57606580/213496388-dac1f2db-8906-4a37-8c8b-67b835589173.gif" title="Jet Weather App">
+
+
+| Command | Description |
+| --- | --- |
+| <img width="250" src="https://user-images.githubusercontent.com/57606580/213496388-dac1f2db-8906-4a37-8c8b-67b835589173.gif" title="Jet Weather App"> | - Build weather forecast application using Jetpack Compose, search for city and load weather data from API. 
+- Room for database, Retrofit for API, Hilt for ViewModel and Dependency Injection
+- Learn more from --> https://github.com/pdichone/JetWeatherForecast      
+
 
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
