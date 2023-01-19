@@ -20,7 +20,7 @@ I have learned from the basics of what a Composable function is to how to handle
 - First App of Jetpack Compose in Android Studio
 - Learn more from --> https://github.com/pdichone/JetBizCard-Course
 
-<img width="1337" alt="Screen Shot 2023-01-09 at 3 01 21 PM" src="https://user-images.githubusercontent.com/57606580/211407735-32d2238d-1dd2-4966-8d83-1ee88bf78533.png">
+<img width="500" alt="Screen Shot 2023-01-09 at 3 01 21 PM" src="https://user-images.githubusercontent.com/57606580/211407735-32d2238d-1dd2-4966-8d83-1ee88bf78533.png">
 
 ### Money Counter App
 - Basics of Jetpack Compose, State in Compose and Clickable Event
