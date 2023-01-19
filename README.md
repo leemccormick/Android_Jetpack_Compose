@@ -68,6 +68,10 @@ I have learned from the basics of what a Composable function is to how to handle
 
 <img width="1641" alt="Screen Shot 2023-01-19 at 10 15 22 AM" src="https://user-images.githubusercontent.com/57606580/213495142-ee217802-fef7-4e68-885e-174877fbb74d.png">
 
+### Jet Reader App
+- Build the reader app that get data from api, user able to choose a book and read through detail of the book, user can search for a book, add the book to reading list, update book by adding a note about the book and rate the book.
+- Learn how to use FireStore Firebase to build login, logout and save data.
+
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
 - https://www.udemy.com/
