@@ -27,7 +27,10 @@ fun SettingsScreen(
 ) {
     var unitToggleState by remember { mutableStateOf(false) }
     val measurementUnits = listOf("Imperial (F)", "Metric (C)")
-    var choiceState by remember { mutableStateOf("") }
+    val choiceFromDb = settingsViewModel.unitList.collectAsState().value
+    val defaultChoice =
+        if (choiceFromDb.isNullOrEmpty()) measurementUnits[0] else choiceFromDb[0].unit
+    var choiceState by remember { mutableStateOf(defaultChoice) }
 
     Scaffold(
         topBar = {
