@@ -65,7 +65,10 @@ I have learned from the basics of what a Composable function is to how to handle
 |- Learn more from --> https://github.com/pdichone/JetWeatherForecast                                        |
 |                                                                                                            |
 
-
+| FirstName     | LastName      | City     |
+| ------------- | ------------- | -------- |
+| John          | Test1         | NewYork  |
+| Bob           | Test2         | Toronto  |
 
 <img width="1641" alt="Screen Shot 2023-01-19 at 10 15 22 AM" src="https://user-images.githubusercontent.com/57606580/213495142-ee217802-fef7-4e68-885e-174877fbb74d.png">
 
