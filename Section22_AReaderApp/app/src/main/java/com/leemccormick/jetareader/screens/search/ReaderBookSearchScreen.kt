@@ -18,21 +18,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.leemccormick.jetareader.components.InputFiled
 import com.leemccormick.jetareader.components.ReaderAppBar
 import com.leemccormick.jetareader.model.MBook
 import com.leemccormick.jetareader.navigation.ReaderScreens
 
-@Preview
 @Composable
-fun SearchScreen(navController: NavHostController = NavHostController(LocalContext.current)) {
+fun SearchScreen(navController: NavController,
+                 viewModel: BooksSearchViewModel = hiltViewModel()
+) {
     Scaffold(
         topBar = {
             ReaderAppBar(
@@ -52,8 +52,9 @@ fun SearchScreen(navController: NavHostController = NavHostController(LocalConte
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(16.dp)
-                ) {
-                    Log.d("SearchScreen", "Search Term is $it")
+                ) { query ->
+                    Log.d("SearchScreen", "Search Term is $query")
+                    viewModel.searchBooks(query)
                 }
 
                 Spacer(modifier = Modifier.height(13.dp))
@@ -65,7 +66,7 @@ fun SearchScreen(navController: NavHostController = NavHostController(LocalConte
 }
 
 @Composable
-fun BookList(navController: NavHostController) {
+fun BookList(navController: NavController) {
     val listOfBooks = listOf(
         MBook("adas", "Running1", "Me and you", "Hello world"),
         MBook("adas", "Running2", "Me and you", "Hello world"),
@@ -85,7 +86,7 @@ fun BookList(navController: NavHostController) {
 }
 
 @Composable
-fun BookRow(book: MBook, navController: NavHostController) {
+fun BookRow(book: MBook, navController: NavController) {
     Card(
         modifier = Modifier
             .clickable {
@@ -106,7 +107,10 @@ fun BookRow(book: MBook, navController: NavHostController) {
             Image(
                 painter = rememberImagePainter(data = imageURL),
                 contentDescription = "book image",
-                modifier = Modifier.width(80.dp).fillMaxHeight().padding(4.dp)
+                modifier = Modifier
+                    .width(80.dp)
+                    .fillMaxHeight()
+                    .padding(4.dp)
             )
 
             Column() {
