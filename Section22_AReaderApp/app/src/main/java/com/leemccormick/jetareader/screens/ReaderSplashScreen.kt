@@ -20,6 +20,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.google.firebase.auth.FirebaseAuth
 import com.leemccormick.jetareader.components.ReaderLogo
 import com.leemccormick.jetareader.navigation.ReaderScreens
 import kotlinx.coroutines.delay
@@ -50,7 +51,11 @@ fun ReaderSplashScreen(navController: NavHostController) {
 
         delay(2000L)
 
-        navController.navigate(ReaderScreens.LoginScreen.name)
+        if (FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()) {
+            navController.navigate(ReaderScreens.LoginScreen.name)
+        } else {
+            navController.navigate(ReaderScreens.ReaderHomeScreen.name)
+        }
     }
 
     // View

@@ -40,9 +40,13 @@ import com.leemccormick.jetareader.R
 import com.leemccormick.jetareader.components.EmailInput
 import com.leemccormick.jetareader.components.PasswordInput
 import com.leemccormick.jetareader.components.ReaderLogo
+import com.leemccormick.jetareader.navigation.ReaderScreens
 
 @Composable
-fun ReaderLoginScreen(navController: NavHostController) {
+fun ReaderLoginScreen(
+    navController: NavHostController,
+    viewModel: LoginScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+) {
     val showLoginForm = rememberSaveable { mutableStateOf(true) }
 
     Surface(modifier = Modifier.fillMaxSize()) {
@@ -58,7 +62,11 @@ fun ReaderLoginScreen(navController: NavHostController) {
                         "Form",
                         "ReaderLoginScreen | email : $email | password : $password | isCreateAccount : false"
                     )
-                    //TODO : Firebase Login
+
+                    // Firebase Login
+                    viewModel.signInWithEmailAndPassword(email, password) {
+                        navController.navigate(ReaderScreens.ReaderHomeScreen.name)
+                    }
                 }
             } else {
                 UserForm(loading = false, isCreateAccount = true) { email, password ->
@@ -66,7 +74,11 @@ fun ReaderLoginScreen(navController: NavHostController) {
                         "Form",
                         "ReaderLoginScreen | email : $email | password : $password | isCreateAccount : true"
                     )
-                    //TODO : Firebase Create Account
+
+                    // Firebase Create Account
+                    viewModel.createUserWithEmailAndPassword(email = email, password = password) {
+                        navController.navigate(ReaderScreens.ReaderHomeScreen.name)
+                    }
                 }
             }
         }
@@ -74,7 +86,7 @@ fun ReaderLoginScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(15.dp))
 
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(top = 100.dp),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -122,7 +134,7 @@ fun UserForm(
         if (isCreateAccount) {
             Text(
                 text = stringResource(id = R.string.create_acct),
-                modifier = Modifier.padding(4.dp)
+                modifier = Modifier.padding(15.dp)
             )
         } else Text(text = "")
 
@@ -168,7 +180,7 @@ fun SubmitButton(
     Button(
         onClick = onClick,
         modifier = Modifier
-            .padding(3.dp)
+            .padding(15.dp)
             .fillMaxWidth(),
         enabled = !loading && validInputs,
         shape = CircleShape
