@@ -50,7 +50,10 @@ fun Home(navController: NavController = NavController(LocalContext.current)) {
             ReaderAppBar(title = "A.Reader", navController = navController)
         },
         floatingActionButton = {
-            FABContent {}
+            FABContent {
+                Log.d("FABContent", "FABContent Clicked ! Should go to search screen...")
+                navController.navigate(ReaderScreens.SearchScreen.name)
+            }
         }
     ) {
         Surface(

@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
@@ -87,7 +88,8 @@ fun InputFiled(
             .padding(bottom = 10.dp, start = 10.dp, end = 10.dp)
             .fillMaxWidth(),
         enabled = enabled,
-        keyboardOptions = KeyboardOptions(keyboardType = keyboardType, imeAction = imeAction)
+        keyboardOptions = KeyboardOptions(keyboardType = keyboardType, imeAction = imeAction),
+        keyboardActions = onAction
     )
 }
 
@@ -158,14 +160,15 @@ fun TitleSection(
 @Composable
 fun ReaderAppBar(
     title: String,
+    icon: ImageVector? = null,
     showProfile: Boolean = true,
-    navController: NavController
+    navController: NavController,
+    onBackArrowClicked: () -> Unit = {}
 ) {
     TopAppBar(
         title = {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 if (showProfile) {
-
                     Icon(
                         imageVector = Icons.Default.Favorite,
                         contentDescription = "logo icon",
@@ -175,6 +178,17 @@ fun ReaderAppBar(
                     )
                 }
 
+                if (icon != null) {
+                    Icon(
+                        imageVector = icon,
+                        contentDescription = "arrow back",
+                        tint = Color.Red.copy(alpha = 0.7f),
+                        modifier = Modifier.clickable { onBackArrowClicked.invoke() }
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(40.dp))
+
                 Text(
                     text = title,
                     color = Color.Red.copy(alpha = 0.7f),
@@ -182,8 +196,6 @@ fun ReaderAppBar(
                 )
 
                 Spacer(modifier = Modifier.width(150.dp))
-
-
             }
         },
         actions = {
@@ -194,11 +206,15 @@ fun ReaderAppBar(
                     }
                 }
             ) {
-                Icon(
-                    imageVector = Icons.Filled.Logout,
-                    contentDescription = "logout icon",
-                    tint = MaterialTheme.colors.secondaryVariant
-                )
+                if (showProfile) {
+                    Row() {
+                        Icon(
+                            imageVector = Icons.Filled.Logout,
+                            contentDescription = "logout icon",
+                            tint = MaterialTheme.colors.secondaryVariant
+                        )
+                    }
+                } else Box() {}
             }
         },
         backgroundColor = Color.Transparent,
@@ -209,7 +225,7 @@ fun ReaderAppBar(
 @Composable
 fun FABContent(onTap: () -> Unit) {
     FloatingActionButton(
-        onClick = { onTap },
+        onClick = { onTap.invoke() },
         shape = RoundedCornerShape(50.dp),
         backgroundColor = Color(0xFF92CBDF)
     ) {
