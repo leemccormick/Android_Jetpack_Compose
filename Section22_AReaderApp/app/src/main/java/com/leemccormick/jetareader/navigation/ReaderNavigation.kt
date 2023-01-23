@@ -1,6 +1,7 @@
 package com.leemccormick.jetareader.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -8,6 +9,7 @@ import com.leemccormick.jetareader.screens.ReaderSplashScreen
 import com.leemccormick.jetareader.screens.details.BookDetailScreen
 import com.leemccormick.jetareader.screens.home.Home
 import com.leemccormick.jetareader.screens.login.ReaderLoginScreen
+import com.leemccormick.jetareader.screens.search.BooksSearchViewModel
 import com.leemccormick.jetareader.screens.search.SearchScreen
 import com.leemccormick.jetareader.screens.stats.ReaderStatsScreen
 import com.leemccormick.jetareader.screens.update.BookUpdateScreen
@@ -40,7 +42,8 @@ fun ReaderNavigation() {
         }
 
         composable(ReaderScreens.SearchScreen.name) {
-            SearchScreen(navController = navController)
+            val viewModel = hiltViewModel<BooksSearchViewModel>()
+            SearchScreen(navController = navController, viewModel)
         }
 
         composable(ReaderScreens.DetailsScreen.name) {

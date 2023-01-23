@@ -19,6 +19,7 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -26,12 +27,13 @@ import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
 import com.leemccormick.jetareader.components.InputFiled
 import com.leemccormick.jetareader.components.ReaderAppBar
-import com.leemccormick.jetareader.model.MBook
+import com.leemccormick.jetareader.model.Item
 import com.leemccormick.jetareader.navigation.ReaderScreens
 
 @Composable
-fun SearchScreen(navController: NavController,
-                 viewModel: BooksSearchViewModel = hiltViewModel()
+fun SearchScreen(
+    navController: NavController,
+    viewModel: BooksSearchViewModel = hiltViewModel()
 ) {
     Scaffold(
         topBar = {
@@ -65,28 +67,47 @@ fun SearchScreen(navController: NavController,
     }
 }
 
+/* This code before using Resource
 @Composable
-fun BookList(navController: NavController) {
-    val listOfBooks = listOf(
+fun BookList(navController: NavController, viewModel: BooksSearchViewModel) {
+
+    if (viewModel.listOfBooks.value.loading == true) {
+        Log.d("Book", "BookList : loading...")
+        CircularProgressIndicator()
+    } else {
+        Log.d("Book", "BookList : ${viewModel.listOfBooks.value.data}")
+    }
+
+     val listOfBooks = listOf(
         MBook("adas", "Running1", "Me and you", "Hello world"),
         MBook("adas", "Running2", "Me and you", "Hello world"),
         MBook("adas", "Running3", "Me and you", "Hello world"),
         MBook("adas", "Running4", "Me and you", "Hello world"),
         MBook("adas", "Running5", "Me and you", "Hello world")
     )
+ */
 
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(16.dp)
-    ) {
-        items(items = listOfBooks) { book ->
-            BookRow(book, navController)
+@Composable
+fun BookList(navController: NavController, viewModel: BooksSearchViewModel = hiltViewModel()) {
+    val listOfBooks = viewModel.list
+    Log.d("Book", "BookList : $listOfBooks")
+
+    if (viewModel.isLoading) {
+        LinearProgressIndicator()
+    } else {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = PaddingValues(16.dp)
+        ) {
+            items(items = listOfBooks) { book ->
+                BookRow(book, navController)
+            }
         }
     }
 }
 
 @Composable
-fun BookRow(book: MBook, navController: NavController) {
+fun BookRow(book: Item, navController: NavController) {
     Card(
         modifier = Modifier
             .clickable {
@@ -102,7 +123,15 @@ fun BookRow(book: MBook, navController: NavController) {
             modifier = Modifier.padding(5.dp),
             verticalAlignment = Alignment.Top
         ) {
-            val imageURL = "https://g.christianbook.com/g/slideshow/5/599006/main/599006_1_ftc.jpg"
+            // This is an example image
+            // val imageURL = "https://g.christianbook.com/g/slideshow/5/599006/main/599006_1_ftc.jpg"
+
+            val imageURL: String =
+                if (book.volumeInfo.imageLinks.smallThumbnail.isEmpty() == true) {
+                    "https://g.christianbook.com/g/slideshow/5/599006/main/599006_1_ftc.jpg"
+                } else {
+                    book.volumeInfo.imageLinks.smallThumbnail
+                }
 
             Image(
                 painter = rememberImagePainter(data = imageURL),
@@ -114,15 +143,28 @@ fun BookRow(book: MBook, navController: NavController) {
             )
 
             Column() {
-                Text(text = book.title.toString(), overflow = TextOverflow.Ellipsis)
+                Text(text = book.volumeInfo.title, overflow = TextOverflow.Ellipsis)
 
                 Text(
-                    text = "Authors : ${book.authors.toString()}",
-                    overflow = TextOverflow.Ellipsis,
+                    text = "Authors : ${book.volumeInfo.authors}",
+                    overflow = TextOverflow.Clip,
+                    fontStyle = FontStyle.Italic,
                     style = MaterialTheme.typography.caption
                 )
 
-                //TODO : Add more filed later
+                Text(
+                    text = "Date : ${book.volumeInfo.publishedDate}",
+                    overflow = TextOverflow.Clip,
+                    fontStyle = FontStyle.Italic,
+                    style = MaterialTheme.typography.caption
+                )
+
+                Text(
+                    text = "${book.volumeInfo.categories}",
+                    overflow = TextOverflow.Clip,
+                    fontStyle = FontStyle.Italic,
+                    style = MaterialTheme.typography.caption
+                )
             }
         }
     }
