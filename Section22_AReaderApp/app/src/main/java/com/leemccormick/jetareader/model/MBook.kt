@@ -1,8 +1,8 @@
 package com.leemccormick.jetareader.model
 
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.Exclude
 import com.google.firebase.firestore.PropertyName
-import java.security.Timestamp
 
 data class MBook(
     // @Exclude --> Do not need to pass this id to firebase fire store.

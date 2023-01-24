@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Jet A Reader</string>
+    <string name="sure">Are you sure want to delete this book?</string>
+    <string name="action">This action is no reversible.</string>
     <string name="create_acct">Please enter a valid email and password that is at least 6 characters.</string>
 </resources>

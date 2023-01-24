@@ -1,40 +1,25 @@
 package com.leemccormick.jetareader.screens.home
 
 import android.util.Log
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.rememberScrollableState
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
-import androidx.compose.material.icons.rounded.Favorite
-import androidx.compose.material.icons.rounded.FavoriteBorder
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
-import coil.compose.rememberImagePainter
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 import com.leemccormick.jetareader.components.FABContent
 import com.leemccormick.jetareader.components.ListCard
 import com.leemccormick.jetareader.components.ReaderAppBar
@@ -44,7 +29,10 @@ import com.leemccormick.jetareader.navigation.ReaderScreens
 
 @Preview
 @Composable
-fun Home(navController: NavController = NavController(LocalContext.current)) {
+fun Home(
+    navController: NavController = NavController(LocalContext.current),
+    viewModel: HomeScreenViewModel = hiltViewModel()
+) {
     Scaffold(
         topBar = {
             ReaderAppBar(title = "A.Reader", navController = navController)
@@ -59,15 +47,13 @@ fun Home(navController: NavController = NavController(LocalContext.current)) {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
-            HomeContent(navController)
+            HomeContent(navController, viewModel)
         }
     }
 }
 
-@Composable
-fun HomeContent(navController: NavController) {
-    val email = FirebaseAuth.getInstance().currentUser?.email
-    val currentUserName = if (!email.isNullOrEmpty()) email?.split("@").get(0) else "N/A"
+// This is example of book before implement get data from firebase
+/*
     val listOfBooks = listOf(
         MBook("adas", "Running1", "Me and you", "Hello world"),
         MBook("adas", "Running2", "Me and you", "Hello world"),
@@ -75,6 +61,22 @@ fun HomeContent(navController: NavController) {
         MBook("adas", "Running4", "Me and you", "Hello world"),
         MBook("adas", "Running5", "Me and you", "Hello world")
     )
+ */
+
+@Composable
+fun HomeContent(navController: NavController, viewModel: HomeScreenViewModel) {
+    val email = FirebaseAuth.getInstance().currentUser?.email
+    val currentUserName = if (!email.isNullOrEmpty()) email?.split("@").get(0) else "N/A"
+    var listOfBooks = emptyList<MBook>()
+    val currentUser = FirebaseAuth.getInstance().currentUser
+
+    if (!viewModel.data.value.data.isNullOrEmpty()) {
+        listOfBooks = viewModel.data.value.data!!.toList().filter { mBook ->
+            mBook.userId == currentUser?.uid.toString()
+        }
+
+        Log.d("Books", "HomeContent: ${listOfBooks.toString()}")
+    }
 
     Column(
         Modifier.padding(2.dp),
@@ -111,17 +113,17 @@ fun HomeContent(navController: NavController) {
             }
         }
 
-        ReadingRightNowArea(books = listOf(), navController = navController)
+        ReadingRightNowArea(listOfBooks = listOfBooks, navController = navController)
 
         TitleSection(label = "Reading List")
 
-        BookListArea(listOfBook = listOfBooks, navController = navController)
+        BookListArea(listOfBooks = listOfBooks, navController = navController)
     }
 }
 
 @Composable
-fun BookListArea(listOfBook: List<MBook>, navController: NavController) {
-    HorizontalScrollableComponent(listOfBook) {
+fun BookListArea(listOfBooks: List<MBook>, navController: NavController) {
+    HorizontalScrollableComponent(listOfBooks) {
         Log.d("Book", "BookListArea : $it")
         // TODO : onCardPressed -> Go to detail
     }
@@ -143,15 +145,23 @@ fun HorizontalScrollableComponent(
 
         for (book in listOfBook) {
             ListCard(book) {
-                onCardPressed(it)
+                onCardPressed(book.googleBookId.toString())
             }
         }
     }
 }
 
 @Composable
-fun ReadingRightNowArea(books: List<MBook>, navController: NavController) {
-    ListCard()
+fun ReadingRightNowArea(listOfBooks: List<MBook>, navController: NavController) {
+//TODO work on this soon....
+//    val addedBooks = listOfBooks.filter { mBook ->
+//        mBook.startedReading == null && mBook.finishedReading == null
+//    }
+
+    HorizontalScrollableComponent(listOfBooks) {
+        //TODO OnCardClick then navigation to details view by passing it (title) to update screen
+        navController.navigate(ReaderScreens.UpdateScreen.name + "/$it")
+    }
 }
 
 

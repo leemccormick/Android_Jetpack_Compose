@@ -1,7 +1,9 @@
 package com.leemccormick.jetareader.di
 
+import com.google.firebase.firestore.FirebaseFirestore
 import com.leemccormick.jetareader.network.BooksApi
 import com.leemccormick.jetareader.repository.BookRepository
+import com.leemccormick.jetareader.repository.FireRepository
 import com.leemccormick.jetareader.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -17,6 +19,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+    // After create the FireRepository, then we have to come back to this AppModule to inject with this...
+    @Singleton
+    @Provides
+    fun provideFireBookRepository() =
+        FireRepository(queryBook = FirebaseFirestore.getInstance().collection("books"))
+
     // After create the BookRepository, then we have to come back to this AppModule to inject with this...
     @Singleton
     @Provides

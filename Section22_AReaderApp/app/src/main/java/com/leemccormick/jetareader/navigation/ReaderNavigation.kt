@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.leemccormick.jetareader.screens.ReaderSplashScreen
 import com.leemccormick.jetareader.screens.details.BookDetailScreen
 import com.leemccormick.jetareader.screens.home.Home
+import com.leemccormick.jetareader.screens.home.HomeScreenViewModel
 import com.leemccormick.jetareader.screens.login.ReaderLoginScreen
 import com.leemccormick.jetareader.screens.search.BooksSearchViewModel
 import com.leemccormick.jetareader.screens.search.SearchScreen
@@ -41,7 +42,8 @@ fun ReaderNavigation() {
         }
 
         composable(ReaderScreens.ReaderHomeScreen.name) {
-            Home(navController = navController)
+            val viewModel = hiltViewModel<HomeScreenViewModel>()
+            Home(navController = navController, viewModel = viewModel)
         }
 
         composable(ReaderScreens.SearchScreen.name) {
@@ -71,8 +73,17 @@ fun ReaderNavigation() {
             ReaderStatsScreen(navController = navController)
         }
 
-        composable(ReaderScreens.UpdateScreen.name) {
-            BookUpdateScreen(navController = navController)
+        val updateName = ReaderScreens.UpdateScreen.name
+        composable("$updateName/{bookItemId}",
+            arguments = listOf(
+                navArgument("bookItemId") {
+                    type = NavType.StringType
+                }
+            )
+        ) { backStackEntry ->
+            backStackEntry.arguments?.getString("bookItemId").let {
+                BookUpdateScreen(navController = navController, bookItemId = it.toString())
+            }
         }
     }
 }
