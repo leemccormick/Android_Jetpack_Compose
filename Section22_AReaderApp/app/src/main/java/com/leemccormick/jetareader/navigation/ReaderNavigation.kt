@@ -2,8 +2,10 @@ package com.leemccormick.jetareader.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import com.leemccormick.jetareader.screens.ReaderSplashScreen
 import com.leemccormick.jetareader.screens.details.BookDetailScreen
@@ -29,7 +31,8 @@ fun ReaderNavigation() {
     // 2) Create NavHost()
     NavHost(
         navController = navController,
-        startDestination = ReaderScreens.SplashScreen.name) {
+        startDestination = ReaderScreens.SplashScreen.name
+    ) {
 
         // 3) Create composable
         composable(ReaderScreens.SplashScreen.name) {
@@ -46,8 +49,18 @@ fun ReaderNavigation() {
             SearchScreen(navController = navController, viewModel)
         }
 
-        composable(ReaderScreens.DetailsScreen.name) {
-            BookDetailScreen(navController = navController)
+        // We can pass arguments --> using book id
+        val detailName = ReaderScreens.DetailScreen.name
+        composable("$detailName/{bookId}",
+            arguments = listOf(
+                navArgument("bookId") {
+                    type = NavType.StringType
+                }
+            )
+        ) { backStackEntry ->
+            backStackEntry.arguments?.getString("bookId").let {
+                BookDetailScreen(navController = navController, bookId = it.toString())
+            }
         }
 
         composable(ReaderScreens.LoginScreen.name) {

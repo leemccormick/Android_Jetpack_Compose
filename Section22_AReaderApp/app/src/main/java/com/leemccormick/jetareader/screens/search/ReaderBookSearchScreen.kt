@@ -93,7 +93,14 @@ fun BookList(navController: NavController, viewModel: BooksSearchViewModel = hil
     Log.d("Book", "BookList : $listOfBooks")
 
     if (viewModel.isLoading) {
-        LinearProgressIndicator()
+        Row(
+            modifier = Modifier.padding(start = 20.dp, end = 20.dp),
+            horizontalArrangement = Arrangement.SpaceAround,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            LinearProgressIndicator()
+            Text(text = "Loading...")
+        }
     } else {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
@@ -111,7 +118,7 @@ fun BookRow(book: Item, navController: NavController) {
     Card(
         modifier = Modifier
             .clickable {
-                //  navController.navigate(ReaderScreens.DetailScreen.name + "/${book.id}")
+                navController.navigate(ReaderScreens.DetailScreen.name + "/${book.id}")
             }
             .fillMaxWidth()
             .height(100.dp)
