@@ -71,8 +71,7 @@ I have learned from the basics of what a Composable function is to how to handle
 ### Jet Reader App
 | App Demo | What To Learn |
 | --- |  --- |
-| <img width="250" src="https://user-images.githubusercontent.com/57606580/214672663-066ed267-db98-4994-91b8-b45240cb65f6.gif" title="Jet Reader App">
-|- Build the reader app that get data from api, user able to choose a book and read through detail of the book, user can search for a book, add the book to reading list, update book by adding a note about the book and rate the book.
+| <img width="250" src="https://user-images.githubusercontent.com/57606580/214672663-066ed267-db98-4994-91b8-b45240cb65f6.gif" title="Jet Reader App">|- Build the reader app that get data from api, user able to choose a book and read through detail of the book, user can search for a book, add the book to reading list, update book by adding a note about the book and rate the book.
 - Learn how to use FireStore Firebase to build login, logout and save data.
 - Learn more from --> https://github.com/pdichone/JetAReader |
 
