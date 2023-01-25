@@ -71,14 +71,9 @@ I have learned from the basics of what a Composable function is to how to handle
 ### Jet Reader App
 | App Demo | What To Learn |
 | --- |  --- |
-| <img width="250" src="https://user-images.githubusercontent.com/57606580/214672663-066ed267-db98-4994-91b8-b45240cb65f6.gif" title="Jet Reader App">|- Build the reader app that get data from api, user able to choose a book and read through detail of the book, user can search for a book, add the book to reading list, update book by adding a note about the book and rate the book. - Learn how to use FireStore Firebase to build login, logout and save data. -Learn more from --> https://github.com/pdichone/JetAReader |
-
-- Build the reader app that get data from api, user able to choose a book and read through detail of the book, user can search for a book, add the book to reading list, update book by adding a note about the book and rate the book.
-- Learn how to use FireStore Firebase to build login, logout and save data.
-- Learn more from --> https://github.com/pdichone/JetAReader
+| <img width="250" src="https://user-images.githubusercontent.com/57606580/214672663-066ed267-db98-4994-91b8-b45240cb65f6.gif" title="Jet Reader App">|- Build the reader app that get data from api, user able to choose a book and read through detail of the book, user can search for a book, add the book to reading list, update book by adding a note about the book and rate the book. Learn how to use FireStore Firebase to build login, logout and save data. Learn more from --> https://github.com/pdichone/JetAReader |
 
 <img width="1692" alt="Screen Shot 2023-01-25 at 1 35 41 PM" src="https://user-images.githubusercontent.com/57606580/214671370-db7958f7-6945-4292-ade8-6ad97dd3bd3b.png">
-
 
 ## Source
 - Android Jetpack Compose : The Comprehensive Bootcamp Course on Udemy.
