@@ -1,5 +1,7 @@
 # Android Jetpack Compose : The Comprehensive Bootcamp By Paulo Dichone
 
+<img width="1275" alt="Screen Shot 2023-01-25 at 2 02 56 PM" src="https://user-images.githubusercontent.com/57606580/214677073-4297588f-6088-4281-9e44-54be643afcfb.png">
+
 Android Jetpack Compose is a new way of building modern android apps in android app development.
 
 The Software Development industry is moving away from the Imperative Approach of building apps - where developers were required to write a lot of boilerplate code, navigate through inconsistent APIs, and hard to maintain code to build simple mobile apps.
